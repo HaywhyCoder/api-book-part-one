@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Float, Date
 from sqlalchemy.orm import relationship
 
-from database import Base
+from app.database import Base
 
 class Player(Base):
     __tablename__ = "player"
@@ -12,6 +12,8 @@ class Player(Base):
     last_name = Column(String, nullable=False)
     position = Column(String, nullable=False)
     last_changed_date = Column(Date, nullable=False)
+
+    performances = relationship("Performance", back_populates="player")
 
     # Many-to-many relationship between PLayer and Team tables
     teams = relationship("Team", secondary="team_player", back_populates="players")
