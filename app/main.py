@@ -39,15 +39,15 @@ def read_player(player_id: int, db: Session= Depends(get_db)):
                             detail="Player not found")
     return player
 
-@app.get("/v0/performaces/", response_model=list[schemas.Performace])
-def read_performaces(skip: int = 0,
+@app.get("/v0/performances/", response_model=list[schemas.Performance])
+def read_performances(skip: int = 0,
                      limit: int = 100,
                      minimum_last_changed_date: date = None,
                      db: Session = Depends(get_db)):
     performances = crud.get_performances(db, skip=skip, limit=limit, min_last_changed_date=minimum_last_changed_date)
     return performances
 
-@app.get("/v0/leagues/{lea(gue_id}", response_model=schemas.League)
+@app.get("/v0/leagues/{league_id}", response_model=schemas.League)
 def read_league(league_id: int, db: Session = Depends(get_db)):
     league = crud.get_league(db, league_id=league_id)
     if league is None:

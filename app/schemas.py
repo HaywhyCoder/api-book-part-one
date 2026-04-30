@@ -3,7 +3,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import List
 from datetime import date
 
-class Performace(BaseModel):
+class Performance(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     performance_id: int
     player_id: int
@@ -22,7 +22,7 @@ class PlayerBase(BaseModel):
 
 class Player(PlayerBase):
     model_config = ConfigDict(from_attributes=True)
-    performances: List[Performace] = []
+    performances: List[Performance] = []
 
 class TeamBase(BaseModel):
     model_config = ConfigDict(from_attributes=True)
