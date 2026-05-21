@@ -96,7 +96,7 @@ def read_player(
         "/v0/performances/", 
         response_model=list[schemas.Performance],
         summary="Get all the weekly performances that meet all the parameters you sent with your request",
-        description="""Use this endpoint to get lists of weekly performances by players in the SWC. You us the skip and limit to perform pagination of the API. Don't use the Performance ID for counting or logic, because that is an internal ID and is not guaranteed to be sequential""",
+        description="""Use this endpoint to get lists of weekly performances by players in the SWC. You use the skip and limit to perform pagination of the API. Don't use the Performance ID for counting or logic, because that is an internal ID and is not guaranteed to be sequential""",
         response_description="A list of weekly scoring performances. It may be by multiple players.",
         operation_id="v0_get_performances",
         tags=["scoring"]
